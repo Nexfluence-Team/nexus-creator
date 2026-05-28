@@ -78,7 +78,7 @@ app.use(errorHandler)
 
 async function start(): Promise<void> {
   await connectDB()
-  await verifyMailer()
+  // await verifyMailer()
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
