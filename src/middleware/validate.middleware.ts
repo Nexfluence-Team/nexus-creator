@@ -1,6 +1,18 @@
 import { Request, Response, NextFunction } from 'express'
 import { ZodSchema, ZodError } from 'zod'
 
+// ── Human-friendly message from the first Zod error ──────────────
+function humaniseZodErrors(
+  errors: { field: string; message: string }[]
+): string {
+  if (errors.length === 0) return 'Please check your input and try again.'
+  const { field } = errors[0]
+  if (field === 'otp')      return 'Incorrect code — please check and try again.'
+  if (field === 'email')    return 'Please enter a valid email address.'
+  if (field === 'password') return 'Password must be at least 6 characters.'
+  return 'Please check your input and try again.'
+}
+
 // ── Validate request body ─────────────────────────────────────────
 export function validate(schema: ZodSchema) {
   return (
@@ -21,7 +33,7 @@ export function validate(schema: ZodSchema) {
         res.status(400).json({
           success: false,
           error: 'VALIDATION_ERROR',
-          message: 'Invalid request data.',
+          message: humaniseZodErrors(errors),
           errors,
         })
         return
