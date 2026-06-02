@@ -28,6 +28,7 @@ const ALLOWED_ORIGINS = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://nexus.nexfluence.eu',
+    'https://nexfluence.eu',
   'https://nex-creator-profile.vercel.app',
   // ── NEW: add your second Vercel frontend URL below ────────────
   'https://new-web-delta-six.vercel.app',   // ← exact URL from the error
