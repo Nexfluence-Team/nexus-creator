@@ -30,7 +30,7 @@ const ALLOWED_ORIGINS = [
   'https://nexus.nexfluence.eu',
   'https://nex-creator-profile.vercel.app',
   // ── NEW: add your second Vercel frontend URL below ────────────
-  'https://YOUR-NEW-FRONTEND.vercel.app',   // <-- replace this
+  'https://new-web-delta-six.vercel.app',   // ← exact URL from the error
   // ─────────────────────────────────────────────────────────────
 ]
 
