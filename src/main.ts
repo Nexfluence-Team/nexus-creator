@@ -13,6 +13,10 @@ import inboxRoutes     from './routes/inbox.routes'
 import analyticsRoutes from './routes/analytics.routes'
 import referralsRoutes from './routes/referrals.routes'
 import paymentsRoutes  from './routes/payments.routes'
+// ── NEW ───────────────────────────────────────────────────────────
+import contactRoutes   from './routes/contact.routes'
+import waitlistRoutes  from './routes/waitlist.routes'
+// ─────────────────────────────────────────────────────────────────
 
 import { generalLimiter }             from './middleware/rateLimit.middleware'
 import { errorHandler, notFound }     from './middleware/error.middleware'
@@ -25,6 +29,9 @@ const ALLOWED_ORIGINS = [
   'http://localhost:3001',
   'https://nexus.nexfluence.eu',
   'https://nex-creator-profile.vercel.app',
+  // ── NEW: add your second Vercel frontend URL below ────────────
+  'https://YOUR-NEW-FRONTEND.vercel.app',   // <-- replace this
+  // ─────────────────────────────────────────────────────────────
 ]
 
 app.use(
@@ -71,6 +78,10 @@ app.use('/inbox',      inboxRoutes)
 app.use('/analytics',  analyticsRoutes)
 app.use('/referrals',  referralsRoutes)
 app.use('/payments',   paymentsRoutes)
+// ── NEW ───────────────────────────────────────────────────────────
+app.use('/contact',    contactRoutes)
+app.use('/waitlist',   waitlistRoutes)
+// ─────────────────────────────────────────────────────────────────
 app.use('/',           contentRoutes)
 
 app.use(notFound)
